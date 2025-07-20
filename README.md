@@ -58,7 +58,7 @@
     });
 
     yesBtn.addEventListener('click', function() {
-      alert("Awww, Oke Gas!");
+      alert("Awww, Oke Gas! ");
     });
   </script>
 
