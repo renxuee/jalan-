@@ -2,87 +2,63 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Mau Nge-date?</title>
+  <title>Mau Jalan Ga Sama Aku?</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fff0f5;
+      font-family: sans-serif;
       text-align: center;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      padding-top: 100px;
+      background-color: #f3e5f5;
     }
 
     h1 {
-      color: #e75480;
-      margin-bottom: 40px;
+      font-size: 2em;
+      color: #6a1b9a;
     }
 
-    .button-container {
-      position: relative;
-      width: 350px;
-      height: 150px;
-    }
-
-    button {
+    .btn {
       padding: 15px 30px;
-      font-size: 18px;
+      font-size: 20px;
+      margin: 20px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      position: absolute;
-      transition: top 0.3s ease, left 0.3s ease;
-      align-items: center;
+      transition: 0.2s ease-in-out;
     }
 
     #yesBtn {
-      background-color: #28a745;
+      background-color: #66bb6a;
       color: white;
-      left: 30px;
-      top: 50px;
     }
 
     #noBtn {
-      background-color: #dc3545;
+      background-color: #ef5350;
       color: white;
-      left: 180px;
-      top: 50px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Mau nge-date sama aku?</h1>
-  <div class="button-container">
-    <button id="yesBtn">mau</button>
-    <button id="noBtn">tidak mau</button>
-  </div>
+  <h1>Mau jalan ga sama aku? 😳</h1>
+  <button id="yesBtn" class="btn">Yes 🥰</button>
+  <button id="noBtn" class="btn">No 😅</button>
 
   <script>
-    const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
-    const container = document.querySelector('.button-container');
+    const noBtn = document.getElementById('noBtn');
+    let yesFontSize = 20;
 
-    noBtn.addEventListener('click', () => {
-      const containerRect = container.getBoundingClientRect();
-      const btnWidth = noBtn.offsetWidth;
-      const btnHeight = noBtn.offsetHeight;
+    noBtn.addEventListener('click', function() {
+      yesFontSize += 10;
+      yesBtn.style.fontSize = yesFontSize + 'px';
 
-      const maxX = container.offsetWidth - btnWidth;
-      const maxY = container.offsetHeight - btnHeight;
-
-      let newX = Math.random() * maxX;
-      let newY = Math.random() * maxY;
-
-      noBtn.style.left = `${newX}px`;
-      noBtn.style.top = `${newY}px`;
+      if (yesFontSize >= 60) {
+        alert("Udah deh, bilang 'iya' aja 😆");
+      }
     });
 
-    yesBtn.addEventListener('click', () => {
-      alert('Yay! kita Ngedate! ❤️');
+    yesBtn.addEventListener('click', function() {
+      alert("Awww, makasih sayang! 😘");
     });
   </script>
 
