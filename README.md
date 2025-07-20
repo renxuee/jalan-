@@ -17,7 +17,6 @@
     }
 
     .btn {
-      padding: 15px 30px;
       font-size: 20px;
       margin: 20px;
       border: none;
@@ -29,17 +28,17 @@
     #yesBtn {
       background-color: #43a047;
       color: white;
+      padding: 15px 30px;
     }
 
     #noBtn {
       background-color: #e53935;
       color: white;
+      padding: 15px 30px;
     }
 
     .hidden {
-      opacity: 0;
-      transform: scale(0);
-      pointer-events: none;
+      display: none;
     }
   </style>
 </head>
@@ -53,20 +52,33 @@
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
 
-    let yesFontSize = 20;
-    let noFontSize = 20;
+    let yesSize = 20; // ukuran awal font Yes
+    let noSize = 20;  // ukuran awal font No
 
     noBtn.addEventListener('click', function () {
       // Perbesar tombol Yes
-      yesFontSize += 10;
-      yesBtn.style.fontSize = yesFontSize + 'px';
+      yesSize += 10;
+      yesBtn.style.fontSize = yesSize + 'px';
+      yesBtn.style.padding = (yesSize / 2) + 'px ' + (yesSize) + 'px';
 
       // Perkecil tombol No
-      if (noFontSize > 5) {
-        noFontSize -= 3;
-        noBtn.style.fontSize = noFontSize + 'px';
-        noBtn.style.padding = (noFontSize / 2) + 'px ' + (noFontSize) + 'px';
+      if (noSize > 5) {
+        noSize -= 3;
+        noBtn.style.fontSize = noSize + 'px';
+        noBtn.style.padding = (noSize / 2) + 'px ' + (noSize) + 'px';
       }
 
-      // Hilang
+      // Hilangkan tombol No jika sudah terlalu kecil
+      if (noSize <= 5) {
+        noBtn.classList.add('hidden');
+      }
+    });
+
+    yesBtn.addEventListener('click', function () {
+      alert("Yayyy! Kita jalan bareng 🥳💖");
+    });
+  </script>
+
+</body>
+</html>
 
