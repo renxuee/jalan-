@@ -8,12 +8,12 @@
       font-family: sans-serif;
       text-align: center;
       padding-top: 100px;
-      background-color: #f3e5f5;
+      background-color: #fce4ec;
     }
 
     h1 {
       font-size: 2em;
-      color: #6a1b9a;
+      color: #ad1457;
     }
 
     .btn {
@@ -23,17 +23,23 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.2s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     #yesBtn {
-      background-color: #66bb6a;
+      background-color: #43a047;
       color: white;
     }
 
     #noBtn {
-      background-color: #ef5350;
+      background-color: #e53935;
       color: white;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(0);
+      pointer-events: none;
     }
   </style>
 </head>
@@ -46,21 +52,21 @@
   <script>
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
-    let yesFontSize = 20;
 
-    noBtn.addEventListener('click', function() {
+    let yesFontSize = 20;
+    let noFontSize = 20;
+
+    noBtn.addEventListener('click', function () {
+      // Perbesar tombol Yes
       yesFontSize += 10;
       yesBtn.style.fontSize = yesFontSize + 'px';
 
-      if (yesFontSize >= 60) {
-        alert("Udah deh, bilang 'iya' aja 😆");
+      // Perkecil tombol No
+      if (noFontSize > 5) {
+        noFontSize -= 3;
+        noBtn.style.fontSize = noFontSize + 'px';
+        noBtn.style.padding = (noFontSize / 2) + 'px ' + (noFontSize) + 'px';
       }
-    });
 
-    yesBtn.addEventListener('click', function() {
-      alert("Awww, makasih gass! 😘");
-    });
-  </script>
+      // Hilang
 
-</body>
-</html>
