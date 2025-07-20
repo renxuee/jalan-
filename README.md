@@ -58,7 +58,7 @@
     });
 
     yesBtn.addEventListener('click', function() {
-      alert("Awww, makasih sayang! 😘");
+      alert("Awww, Oke Gas!");
     });
   </script>
 
